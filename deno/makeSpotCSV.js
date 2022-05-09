@@ -21,7 +21,7 @@ for (let i = 1;; i++) {
   }
 }
 list.sort((a, b) => a.id.localeCompare(b.id));
-await Deno.writeTextFile("fuku-e-spot.csv", CSV.stringify(list));
+await Deno.writeTextFile("../fuku-e-spot.csv", CSV.stringify(list));
 
 /*
 const list = [];

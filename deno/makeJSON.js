@@ -33,7 +33,8 @@ export const makeJSON = async (fn) => {
         if (name == url) {
           return url;
         }
-        return `[${name}](${url})`;
+        //return `[${name}](${url})`; // Markdown
+        return url;
       }).join(",");
     }
     return dt.textContent;
