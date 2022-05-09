@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>ふくいドットコム 恐竜スポットマップ</title>
+</head><body>
+
+<h1>ふくいドットコム 恐竜スポットマップ</h1>
+
+<script type="module" src="https://code4fukui.github.io/csv-map/csv-map.js"></script>
+<csv-map src=./fuku-e-spot-dino.csv useimage=false grayscale=grayscale></csv-map>
+
+<script type="module" src="https://code4sabae.github.io/js/csv-viewer.js"></script>
+<csv-viewer name="福井県公式観光サイト ふくいドットコム スポット" src=./fuku-e-spot-dino.csv embedimage=false></csv-viewer>
+
+<a href=https://github.com/code4fukui/fukui-spot>src on GitHub by Code for FUKUI</a>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+}
+csv-map > div {
+  width: 100%;
+  height: 70vh !important;
+}
+csv-viewer table, csv-viewer {
+  margin: .5em;
+}
+csv-viewer table {
+  border-collapse: collapse;
+}
+csv-viewer td, csv-viewer th {
+  border: 1px solid black;
+  white-space: nowrap;
+  height: 1em;
+  padding: .3em;
+}
+</style>
