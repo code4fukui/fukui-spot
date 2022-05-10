@@ -1,0 +1,5 @@
+ {
+  "@context": {
+    "vocab": "https://code4fukui.github.io/fukui-spot/fuku-e-spot.jsonld#"
+  }
+}
