@@ -1,6 +1,6 @@
-export const loadOrFetch = async (url) => {
+export const loadOrFetch = async (url, fn) => {
   const n = url.lastIndexOf("/");
-  const fn = url.substring(n + 1);
+  fn = fn || url.substring(n + 1);
   try {
     const html = await Deno.readTextFile("src/" + fn);
     return html;
