@@ -14,3 +14,10 @@
 - [英語スポットCSV](https://code4fukui.github.io/fukui-spot/fuku-e-spot-eng.csv)
 - [中国語簡体字CSV](https://code4fukui.github.io/fukui-spot/fuku-e-spot-chi-CN.csv)
 - [中国語繁体字CSV](https://code4fukui.github.io/fukui-spot/fuku-e-spot-chi-TW.csv)
+
+## データ更新方法
+
+```sh
+cd deno
+deno run -A main.js
+```
