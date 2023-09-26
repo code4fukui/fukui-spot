@@ -1,6 +1,7 @@
 import { HTMLParser } from "https://js.sabae.cc/HTMLParser.js";
 import { loadOrFetch } from "./loadOrFetch.js";
 import { parseMapURL } from "./parseMapURL.js";
+import { HTML } from "https://code4fukui.github.io/HTML/HTML.js";
 
 export const makeJSON = async (fn) => {
   const id = fn.replace(".html", "");
@@ -13,12 +14,12 @@ export const makeJSON = async (fn) => {
     return null;
   }
   const metas = dom.querySelectorAll("meta");
-  const description = metas.find(m => m.getAttribute("name") == "description").getAttribute("content");
+  const description = HTML.decode(metas.find(m => m.getAttribute("name") == "description").getAttribute("content"));
   const url = metas.find(m => m.getAttribute("property") == "og:url").getAttribute("content");
   const image = metas.find(m => m.getAttribute("property") == "og:image").getAttribute("content");
   const nameh2 = dom.querySelector("header h2");
-  const kana = nameh2.getAttribute("data-ruby");
-  const name = nameh2.textContent;
+  const kana = HTML.decode(nameh2.getAttribute("data-ruby"));
+  const name = HTML.decode(nameh2.textContent);
   const detailtag = dom.querySelectorAll("#detailTag dl")
   const area = detailtag[0]?.querySelectorAll("dd").map(dd => dd.textContent).join(",") || "";
   const category = detailtag[1] ? detailtag[1].querySelectorAll("dd").map(dd => dd.textContent).join(",") : "";

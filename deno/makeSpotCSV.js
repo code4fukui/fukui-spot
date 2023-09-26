@@ -3,6 +3,8 @@ import { makeJSON } from "./makeJSON.js";
 import { loadOrFetch } from "./loadOrFetch.js";
 import { HTMLParser } from "https://js.sabae.cc/HTMLParser.js";
 
+await Deno.mkdir("./src", { recursive: true });
+
 const list = [];
 for (let i = 1;; i++) {
   const url = `https://www.fuku-e.com/spot/index_${i}_0_________.html`; // 更新順
