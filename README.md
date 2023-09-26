@@ -19,5 +19,6 @@
 
 ```sh
 cd deno
+rm -rf src/
 deno run -A main.js
 ```
