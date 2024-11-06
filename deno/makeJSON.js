@@ -4,7 +4,7 @@ import { parseMapURL } from "./parseMapURL.js";
 import { HTML } from "https://code4fukui.github.io/HTML/HTML.js";
 
 export const makeJSON = async (fn) => {
-  const id = fn.replace(".html", "");
+  const id = fn.replace(".html", "").replace("detail_", "");
   const fetchurl = `https://www.fuku-e.com/spot/` + fn;
   const html = await loadOrFetch(fetchurl);
   console.log(fn);
