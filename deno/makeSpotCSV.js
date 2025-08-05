@@ -24,7 +24,10 @@ export const makeSpotCSV = async () => {
     }
   }
   list.sort((a, b) => a.id.localeCompare(b.id));
-  await Deno.writeTextFile("../fuku-e-spot.csv", CSV.stringify(list));
+  console.log(list.length);
+  if (list.length > 0) {
+    await Deno.writeTextFile("../fuku-e-spot.csv", CSV.stringify(list));
+  }
 
   /*
   const list = [];
@@ -38,3 +41,7 @@ export const makeSpotCSV = async () => {
   */
 
 };
+
+if (import.meta.main) {
+  await makeSpotCSV();
+}
