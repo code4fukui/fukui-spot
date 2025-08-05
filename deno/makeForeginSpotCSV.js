@@ -25,21 +25,27 @@ list.sort((a, b) => a.id.localeCompare(b.id));
 await Deno.writeTextFile("../fuku-e-spot.csv", CSV.stringify(list));
 */
 
-const langlist = {
-  "en": "eng",
-  "scn": "chi-CN",
-  "tcn": "chi-TW",
-};
-for (const lang in langlist) {
-  const lang2 = langlist[lang];
+export const makeForeginSpotCSV = async () => {
+  const langlist = {
+    "en": "eng",
+    "scn": "chi-CN",
+    "tcn": "chi-TW",
+  };
+  for (const lang in langlist) {
+    const lang2 = langlist[lang];
 
-  const list = [];
-  for (let i = 1; i < 200; i++) {
-    const url = `https://enjoy.pref.fukui.lg.jp/${lang}/spot/spot-${i}/`;
-    const d = await makeForeginJSON(url, lang2);
-    if (d) {
-      list.push(d);
+    const list = [];
+    for (let i = 1; i < 200; i++) {
+      const url = `https://enjoy.pref.fukui.lg.jp/${lang}/spot/spot-${i}/`;
+      const d = await makeForeginJSON(url, lang2);
+      if (d) {
+        list.push(d);
+      }
     }
+    await Deno.writeTextFile(`../fuku-e-spot-${lang2}.csv`, CSV.stringify(list));
   }
-  await Deno.writeTextFile(`../fuku-e-spot-${lang2}.csv`, CSV.stringify(list));
+};
+
+if (import.meta.main) {
+  await makeForeginSpotCSV();
 }

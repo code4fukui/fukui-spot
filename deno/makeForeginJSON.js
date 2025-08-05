@@ -29,8 +29,10 @@ export const makeForeginJSON = async (fetchurl, lang) => {
   if (!title) {
     return null;
   }
+  console.log(fn);
   const metas = dom.querySelectorAll("meta");
-  const description = metas.find(m => m.getAttribute("name") == "description").getAttribute("content");
+  const description = metas.find(m => m.getAttribute("name") == "description")?.getAttribute("content");
+  if (!description) return null;
   const url = metas.find(m => m.getAttribute("property") == "og:url").getAttribute("content");
   const image0 = metas.find(m => m.getAttribute("property") == "og:image").getAttribute("content");
   const image = image0 == "?q=30" ? "" : "https:" + image0;
@@ -58,7 +60,7 @@ export const makeForeginJSON = async (fetchurl, lang) => {
   detail.forEach(d => {
     const name = d.querySelector(".information-content-basics__block-title").textContent;
     const value = parseHref(d.querySelector(".information-content-basics__block-text"));
-    console.log(name, value);
+    //console.log(name, value);
     data[name] = value;
   });
   console.log(data);
