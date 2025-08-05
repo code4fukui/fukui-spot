@@ -17,7 +17,7 @@ export const makeJSON = async (fn) => {
   const description = HTML.decode(metas.find(m => m.getAttribute("name") == "description").getAttribute("content"));
   const url = metas.find(m => m.getAttribute("property") == "og:url").getAttribute("content");
   const image = metas.find(m => m.getAttribute("property") == "og:image").getAttribute("content");
-  const nameh2 = dom.querySelector("header h2");
+  const nameh2 = dom.querySelector("article#detail h2");
   const kana = HTML.decode(nameh2.getAttribute("data-ruby"));
   const name = HTML.decode(nameh2.textContent);
   const detailtag = dom.querySelectorAll("#detailTag dl")
