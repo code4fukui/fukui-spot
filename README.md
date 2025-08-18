@@ -2,6 +2,7 @@
  
 - [ふくいドットコムスポット一覧](https://code4fukui.github.io/fukui-spot/)
 - [ふくいドットコムスポット 緯度経度記載なしデータ一覧](https://code4fukui.github.io/fukui-spot/errdata.html)
+- [ふくいドットコムスポットマップ](https://code4fukui.github.io/fukui-spot/map.html)
 - [ふくいドットコム恐竜スポットマップ](https://code4fukui.github.io/fukui-spot/dinomap.html)
 - [ENJOY FUKUI spots in English](https://code4fukui.github.io/fukui-spot/list-eng.html)
 - [ENJOY FUKUI spots in Simplified Chinese](https://code4fukui.github.io/fukui-spot/list-chi-CN.html)
