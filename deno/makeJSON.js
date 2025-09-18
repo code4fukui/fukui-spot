@@ -3,9 +3,12 @@ import { loadOrFetch } from "./loadOrFetch.js";
 import { parseMapURL } from "./parseMapURL.js";
 import { HTML } from "https://code4fukui.github.io/HTML/HTML.js";
 
+const MAX_IMAGES = 10;
+
 export const makeJSON = async (fn) => {
   const id = fn.replace(".html", "").replace("detail_", "");
-  const fetchurl = `https://www.fuku-e.com/spot/` + fn;
+  const baseurl = `https://www.fuku-e.com/spot/`;
+  const fetchurl = baseurl + fn;
   const html = await loadOrFetch(fetchurl);
   console.log(fn);
   const dom = HTMLParser.parse(html);
@@ -17,6 +20,7 @@ export const makeJSON = async (fn) => {
   const description = HTML.decode(metas.find(m => m.getAttribute("name") == "description").getAttribute("content"));
   const url = metas.find(m => m.getAttribute("property") == "og:url").getAttribute("content");
   const image = metas.find(m => m.getAttribute("property") == "og:image").getAttribute("content");
+
   const nameh2 = dom.querySelector("article#detail h2");
   const kana = HTML.decode(nameh2.getAttribute("data-ruby"));
   const name = HTML.decode(nameh2.textContent);
@@ -53,9 +57,13 @@ export const makeJSON = async (fn) => {
     lng,
     zoom,
     url,
-    image,
     description,
+    image,
   };
+  const images = dom.querySelectorAll("#detailIntroduction #detailPhoto img").map(i => new URL(i.getAttribute("src"), baseurl).href).filter(i => i != image);
+  for (let i = 0; i < MAX_IMAGES - 1; i++) {
+    data["image" + (i + 2)] = images[i] ?? "";
+  }
   for (let i = 0; i < names.length; i++) {
     data[names[i]] = values[i];
   }
