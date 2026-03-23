@@ -17,6 +17,8 @@
 - [中国語簡体字CSV](https://code4fukui.github.io/fukui-spot/fuku-e-spot-chi-CN.csv)
 - [中国語繁体字CSV](https://code4fukui.github.io/fukui-spot/fuku-e-spot-chi-TW.csv)
 
+* CC BY [福井県観光連盟](https://www.fuku-e.com/) / [FTAS 福井県観光データ分析システム](https://www.fuku-e.com/FTAS)
+
 ## データ更新方法
 
 ```sh
